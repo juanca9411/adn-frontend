@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="card">
+        <div class="card heder">
+           <h3 style="text-align: center;">Detalle Funcionario</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="text-center">
+                        <td>Nombre</td>
+                        <td>Cedula</td>
+                        <td>Salario</td>
+                        <td>Fecha de Nacimiento</td>
+                        <td>Fecha de Ingreso</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let fun of funcionario" class="text-center">
+                        <td>{{fun.nombre}}</td>
+                        <td>{{fun.cedula}}</td>
+                        <td>{{fun.salario}}</td>
+                        <td>{{fun.fechaNacimiento | date:'dd-MM-yyyy'}}</td>
+                        <td>{{fun.fechaIngreso | date:'dd-MM-yyyy'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

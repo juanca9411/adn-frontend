@@ -1,0 +1,39 @@
+<div class="container-center" col-md-8 >
+  <div class="row">
+    <div class="col-md">
+        <button type="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-lg btn-block">Simular
+          Funcionario</button>
+      <br />
+      <br />
+      <button type="button" (click)="goAdministrador()" class="btn btn-secondary btn-lg btn-block">Simular
+        Administrador</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Ingrese un Id</h3>
+                <button type="button" class="close" id="cerrarModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <form action="" [formGroup]="homeForm" (ngSubmit)="goFuncionario()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="idFuncionario" id="idFuncionario"
+                                name="idFuncionario" formControlName="idFuncionario">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info">Ingresar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

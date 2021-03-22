@@ -1,0 +1,26 @@
+<div class="container" style="font: small-caption;">
+    <div class="container-center">
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">
+            <h2 style="text-align: center">Listado dias Festivos</h2>
+        </div>
+        <br />
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <td><b>Dia</b></td>
+                        <td><b>Fecha</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let diaFestivo of diaFestivo" class="text-center">
+                        <td>{{diaFestivo.dia}}</td>
+                        <td>{{diaFestivo.fecha | date:'dd-MM-yyyy'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,34 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Resolver Solicitud</h3>
+                <button type="button" class="close" id="cerrarModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <form action="" [formGroup]="resolversolicitudForm" (ngSubmit)="resolver()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Respuesta" id="respuesta"
+                                name="respuesta" formControlName="respuesta">
+                        </div>
+                        <div class="form-group ">
+                            <label for="inputState">Estado:</label>
+                            <select id="inputState" class="form-control" placeholder="Estado" id="estado" name="estado"
+                                formControlName="estado">
+                                <option>Aprobado</option>
+                                <option>Rechazado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" [disabled]="!contractTypeValid" class="btn btn-info">Resolver</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

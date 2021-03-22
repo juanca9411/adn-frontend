@@ -1,0 +1,43 @@
+<div class="container" style="margin-top: 2%;">
+    <div class="card">
+        <div class="card-header">
+            <h3 style="text-align: center">Lista de Solicitudes realizadas</h3>
+        </div>
+        <br />
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <td>Id Funcionaro</td>
+                        <td>Numero Solicitud</td>
+                        <td>Fecha Solicitud</td>
+                        <td>Descripcion</td>
+                        <td>Estado</td>
+                        <td>Respuesta</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let solicitud of solicitudes" class="text-center">
+                        <td>{{solicitud.idFuncionario}}</td>
+                        <td>{{solicitud.numSolicitud}}</td>
+                        <td>{{solicitud.fechaSolicitud | date:'dd-MM-yyyy'}}</td>
+                        <td>{{solicitud.justificacion}}</td>
+                        <td>{{solicitud.estado}}</td>
+                        <td>{{solicitud.respuesta}}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Opciones
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <h4><a class="dropdown-item" data-toggle="modal" data-target="#exampleModal" (click)="goResolverSolicitud(solicitud)" >Resolver solicitud</a></h4><!--[routerLink]="['resolver-solicitud']"-->
+                                </div>
+                            </div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

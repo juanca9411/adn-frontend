@@ -1,0 +1,30 @@
+  <div class="card-body">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <nav aria-label="breadcrumb">
+               <ol class="breadcrumb">
+                <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Funcionario
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a  class="dropdown-item" id="linkDetalleFuncionario" [routerLink]="['./detalle',idFuncionario]">Detalle</a>
+               </div>
+             </li> 
+             <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Solicitud
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" id="linkListSolicitudes" [routerLink]="['./listar-solicitudes',idFuncionario]" role="button">Listar solicitudes</a>
+               <a class="dropdown-item" id="linkRegistrarSolicitudes" [routerLink]="['./registrar-solicitud',idFuncionario]" role="button">Registrar solicitud</a>
+              </div>
+             </li> 
+                </ol>
+              </nav>
+            </tr>
+        </thead>
+    </table>
+</div>
+<router-outlet></router-outlet>
