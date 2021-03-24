@@ -15,8 +15,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let diaFestivo of diaFestivo" class="text-center">
-                        <td>{{diaFestivo.dia}}</td>
-                        <td>{{diaFestivo.fecha | date:'dd-MM-yyyy'}}</td>
+                        <td id="resultDia">{{diaFestivo.dia}}</td>
+                        <td id="resultFecha">{{diaFestivo.fecha | date:'dd-MM-yyyy'}}</td>
                     </tr>
                 </tbody>
             </table>

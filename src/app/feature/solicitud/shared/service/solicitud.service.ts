@@ -1,43 +1,50 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpService } from '@core/services/http.service';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Solicitud } from '../model/solicitud';
 
 
 @Injectable()
 export class SolicitudService {
 
-  constructor(protected http: HttpClient) {}
 
-  Url='http://localhost:8080/app/solicitudes';
+  constructor(protected http: HttpService) { }
 
   private handleError(error: HttpErrorResponse) {
     return throwError(`${error.error.mensaje}`);
   }
 
-  consultarByIdFuncionario(idFuncionario:number){
-    return this.http.get<Solicitud[]>(this.Url+"/"+idFuncionario).pipe(
-      catchError(this.handleError)
-    );
+  consultarByIdFuncionario(idFuncionario: number) {
+    return this.http.doGet<Solicitud[]>(`${environment.endpoint}/solicitudes/${idFuncionario}`,
+      this.http.optsName('Consultar solicitud por funcionario')).pipe(
+        catchError(this.handleError)
+      );
   }
 
-  crearSolicitud(solicitud:Solicitud){
-    return this.http.post<Solicitud>(this.Url,solicitud).pipe(
-      catchError(this.handleError)
-    );
+
+  crearSolicitud(solicitud: Solicitud) {
+    return this.http.doPost<Solicitud, boolean>(`${environment.endpoint}/solicitudes`, solicitud,
+      this.http.optsName('Crear solicitud por funcionario')).pipe(
+        catchError(this.handleError)
+      );
   }
 
   listar(){
-    return this.http.get<Solicitud[]>(this.Url).pipe(
+    return this.http.doGet<Solicitud[]>(`${environment.endpoint}/solicitudes/`,
+    this.http.optsName('Consultar solicitud por funcionario')).pipe(
       catchError(this.handleError)
     );
   }
 
   resolverSolicitud(solicitud:Solicitud){
-    return this.http.put<Solicitud>(this.Url,solicitud).pipe(
+    return this.http.doPut<Solicitud,boolean>(`${environment.endpoint}/solicitudes`, solicitud,
+    this.http.optsName('Crear solicitud por funcionario')).pipe(
       catchError(this.handleError)
     );
   }
- 
+
+
 }

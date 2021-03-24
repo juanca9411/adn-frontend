@@ -14,7 +14,6 @@ import { DiaFestivoModule } from './feature/dia-festivo/dia-festivo.module';
 import { HomeModule } from '@home/home.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Router } from '@angular/router';
 
 
 @NgModule({

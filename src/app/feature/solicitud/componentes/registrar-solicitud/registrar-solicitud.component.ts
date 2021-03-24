@@ -23,7 +23,7 @@ export class RegistrarSolicitudComponent implements OnInit {
 
   ngOnInit(): void {
     this.idFuncionario = + this.activaRouter.snapshot.paramMap.get('idFuncionario');
-    this.construirFormularioProducto();
+    this.construirFormularioSolicitud();
   }
 
   registrar() {
@@ -32,14 +32,15 @@ export class RegistrarSolicitudComponent implements OnInit {
         data => {
           this.toastr.success("Peticion realizada con Exitos")
           console.log(data)
-          this.router.navigate(["home/solicitud/" + this.idFuncionario + "/listar-solicitudes/" + this.idFuncionario])
+          this.router.navigate(["home/funcionario/" + this.idFuncionario + "/listar-solicitudes/" + this.idFuncionario])
         },
         error => {
           this.toastr.error(error)
+          this.router.navigate(["home/funcionario/" + this.idFuncionario + "/listar-solicitudes/" + this.idFuncionario])
         });
   }
 
-  private construirFormularioProducto() {
+  private construirFormularioSolicitud() {
     this.solicitudForm = new FormGroup({
       idFuncionario: new FormControl(this.idFuncionario,),
       justificacion: new FormControl('',),

@@ -19,12 +19,12 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let solicitud of solicitudes" class="text-center">
-                        <td>{{solicitud.idFuncionario}}</td>
-                        <td>{{solicitud.numSolicitud}}</td>
-                        <td>{{solicitud.fechaSolicitud | date:'dd-MM-yyyy'}}</td>
-                        <td>{{solicitud.justificacion}}</td>
-                        <td>{{solicitud.estado}}</td>
-                        <td>{{solicitud.respuesta}}</td>
+                        <td id="resultSolicitudIdFuncionario">{{solicitud.idFuncionario}}</td>
+                        <td id="resultSolicitudnumSolicitud">{{solicitud.numSolicitud}}</td>
+                        <td id="resultSolicitudFechaSolicitud">{{solicitud.fechaSolicitud | date:'dd-MM-yyyy'}}</td>
+                        <td id="resultSolicitudJustificacion">{{solicitud.justificacion}}</td>
+                        <td id="resultSolicitudEstado">{{solicitud.estado}}</td>
+                        <td id="resultSolicitudRespuesta">{{solicitud.respuesta}}</td>
                         <td>
                             <div class="btn-group">
                                 <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"

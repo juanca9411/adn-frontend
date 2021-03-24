@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ManejadorError } from '@core/interceptor/manejador-error';
 import { ToastrService } from 'ngx-toastr';
 import { DiaFestivoService } from '../../shared/service/dia-festivo.service';
 
@@ -11,25 +12,28 @@ import { DiaFestivoService } from '../../shared/service/dia-festivo.service';
 export class RegistrarDiaFestivoComponent implements OnInit {
 
   diaFestivoForm: FormGroup;
-  constructor(private service: DiaFestivoService,private toastr: ToastrService) { }
+  resultado:boolean;
+  constructor(protected service: DiaFestivoService,protected toastr: ToastrService,protected manejadorError:ManejadorError) { }
 
   ngOnInit(): void {
     this.construirFormularioDiasFestivo();
   }
 
   registrar() {
-    let fecha: Date = this.diaFestivoForm.value.fecha;
-    this.diaFestivoForm.patchValue({ fecha: fecha + " 00:00:00" });
+    let fechaNew: Date = this.diaFestivoForm.value.fecha;
+    this.diaFestivoForm.patchValue({ fecha: fechaNew + " 00:00:00" });
 
     this.service.crear(this.diaFestivoForm.value)
       .subscribe(
         data => {
-          this.toastr.success("Peticion realizada con Exitos")
           data;
+          this.resultado=true;
+          this.toastr.success("Peticion realizada con Exitos")
           document.getElementById('cerrarModal').click();
         },
         error => {
-          this.toastr.error(error)
+          this.resultado=false;
+          this.toastr.error(error);
         });
   }
 

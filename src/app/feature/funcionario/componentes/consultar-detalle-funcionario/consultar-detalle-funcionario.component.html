@@ -16,11 +16,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let fun of funcionario" class="text-center">
-                        <td>{{fun.nombre}}</td>
-                        <td>{{fun.cedula}}</td>
-                        <td>{{fun.salario}}</td>
-                        <td>{{fun.fechaNacimiento | date:'dd-MM-yyyy'}}</td>
-                        <td>{{fun.fechaIngreso | date:'dd-MM-yyyy'}}</td>
+                        <td id="funcionarioNombre">{{fun.nombre}}</td>
+                        <td id="funcionarioCedula">{{fun.cedula}}</td>
+                        <td id="funcionarioSalario">{{fun.salario}}</td>
+                        <td id="funcionarioFechaNacimiento">{{fun.fechaNacimiento | date: 'dd/MM/yyyy'}}</td>
+                        <td id="funcionarioFechaIngreso">{{fun.fechaIngreso | date:'dd/MM/yyyy'}}</td>
                     </tr>
                 </tbody>
             </table>

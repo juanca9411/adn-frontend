@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AdministradorRoutingModule} from './administrador-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { AdministradorComponent } from './componentes/administrador/administrador.component';
+import { ManejadorError } from '@core/interceptor/manejador-error';
 
 
 @NgModule({
@@ -13,6 +14,6 @@ import { AdministradorComponent } from './componentes/administrador/administrado
     AdministradorRoutingModule,
     SharedModule,
   ],
-  providers: []
+  providers: [ManejadorError]
 })
 export class AdministradorModule { }
