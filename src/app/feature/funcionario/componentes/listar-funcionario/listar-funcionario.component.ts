@@ -11,8 +11,8 @@ import { FuncionarioService } from '../../shared/service/funcionario.service';
 })
 export class ListarFuncionarioComponent implements OnInit {
 
-  funcionario:Funcionario[];
-  constructor(protected service:FuncionarioService,protected router:Router,private toastr: ToastrService) { }
+  funcionario: Funcionario[];
+  constructor(protected service: FuncionarioService, protected router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.service.listar()
@@ -22,18 +22,18 @@ export class ListarFuncionarioComponent implements OnInit {
       });
   }
 
-  aumentarSalario(funcionario:Funcionario){
+  aumentarSalario(funcionario: Funcionario) {
     this.service.aumentarSalario(funcionario)
-    .subscribe(
-      data => {
-        this.toastr.success("Peticion realizada con Exitos")
-        data
-        window.location.reload();
-      },
-      error => {
-        this.toastr.error(error)
-        this.router.navigate(['./home/administrador/listar-Funcionarios']);
-      });
+      .subscribe(
+        data => {
+          console.log(data);
+            this.toastr.success("Peticion realizada con Exitos")
+            window.location.reload();
+        },
+        error => {
+          this.toastr.error(error)
+          this.router.navigate(['./home/administrador/listar-Funcionarios']);
+        });
   }
 
 }

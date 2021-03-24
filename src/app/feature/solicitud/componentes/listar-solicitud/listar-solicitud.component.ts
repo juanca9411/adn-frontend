@@ -27,7 +27,6 @@ export class ListarSolicitudComponent implements OnInit {
   }
 
   goResolverSolicitud(solicitud:Solicitud){
-    solicitud;
     this.router.navigate(['home/administrador/resolver-solicitud'],{ queryParams:solicitud})
   }
 

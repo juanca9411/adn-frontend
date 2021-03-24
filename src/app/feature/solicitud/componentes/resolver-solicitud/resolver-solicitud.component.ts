@@ -31,7 +31,7 @@ export class ResolverSolicitudComponent implements OnInit {
       .subscribe(
         data => {
           this.toastr.success("Peticion realizada con Exitos")
-          data;
+          console.log(data);
           this.router.navigate(["home/administrador/listar-solicitud"]);
           document.getElementById('cerrarModal').click();
         },

@@ -30,8 +30,8 @@ export class RegistrarFuncionarioComponent implements OnInit {
     this.service.crear(this.funcionarioForm.value)
       .subscribe(
         data => {
+          console.log(data);
           this.toastr.success("Peticion realizada con Exitos")
-          data;
           this.router.navigate(["home/administrador/listar-funcionario"]);
           document.getElementById('cerrarModal').click();
         },

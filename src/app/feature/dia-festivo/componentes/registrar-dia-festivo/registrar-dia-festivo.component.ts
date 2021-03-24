@@ -26,7 +26,7 @@ export class RegistrarDiaFestivoComponent implements OnInit {
     this.service.crear(this.diaFestivoForm.value)
       .subscribe(
         data => {
-          data;
+          console.log(data);
           this.resultado=true;
           this.toastr.success("Peticion realizada con Exitos")
           document.getElementById('cerrarModal').click();

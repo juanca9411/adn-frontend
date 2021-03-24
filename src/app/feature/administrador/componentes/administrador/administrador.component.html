@@ -1,40 +1,41 @@
 <div class="card-body">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="administradorFuncionarioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Funcionario
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  id="linkListarFuncionario" [routerLink]="['./listar-Funcionarios']" >Lista funcionarios</a>
-                      <a class="dropdown-item"  id="linkRegistrarFuncionario" data-toggle="modal" data-target="#registrarFuncionarioModal" [routerLink]="['./registrar-funcionario']" >Registrar funcionarios</a>
-                    </div>
-                  </li> 
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="solicitudDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Solicitud
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  id="linkListarSolicitud" [routerLink]="['./listar-solicitud']" >Lista Solicitudes</a>
-                    </div>
-                  </li> 
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="diaFestivoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dia Festivo
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="diaFestivoDropdown">
-                      <a class="dropdown-item"  id="linkListarDiaFestivo" [routerLink]="['./listar-dia-festivo']" >Lista Dias Festivos</a>
-                      <a class="dropdown-item"  id="linkRegistrarDiaFestivo" data-toggle="modal" data-target="#registrarDiaFestivoModal"  [routerLink]="['./registrar-dia-festivo']" >Agregar Dias Festivos</a>
-                    </div>
-                  </li> 
-                </ol>
-              </nav>
-            </tr>
-        </thead>
-    </table>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="administradorFuncionarioDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Funcionario
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" id="linkListarFuncionario" [routerLink]="['./listar-Funcionarios']">Lista
+            funcionarios</a>
+          <a class="dropdown-item" id="linkRegistrarFuncionario" data-toggle="modal"
+            data-target="#registrarFuncionarioModal" [routerLink]="['./registrar-funcionario']">Registrar
+            funcionarios</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="solicitudDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Solicitud
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" id="linkListarSolicitud" [routerLink]="['./listar-solicitud']">Lista Solicitudes</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="diaFestivoDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Dia Festivo
+        </a>
+        <div class="dropdown-menu" aria-labelledby="diaFestivoDropdown">
+          <a class="dropdown-item" id="linkListarDiaFestivo" [routerLink]="['./listar-dia-festivo']">Lista Dias
+            Festivos</a>
+          <a class="dropdown-item" id="linkRegistrarDiaFestivo" data-toggle="modal"
+            data-target="#registrarDiaFestivoModal" [routerLink]="['./registrar-dia-festivo']">Agregar Dias Festivos</a>
+        </div>
+      </li>
+    </ol>
+  </nav>
 </div>
- <router-outlet></router-outlet>
-
+<router-outlet></router-outlet>
