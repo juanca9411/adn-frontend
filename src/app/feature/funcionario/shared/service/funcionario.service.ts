@@ -33,7 +33,7 @@ export class FuncionarioService {
 
 
   crear(funcionario:Funcionario){
-    return this.http.doPost<Funcionario, Boolean>(`${environment.endpoint}/funcionarios/`,funcionario,
+    return this.http.doPost<Funcionario, boolean>(`${environment.endpoint}/funcionarios/`,funcionario,
     this.http.optsName('Crear funcionario')).pipe(
       catchError(this.handleError)
     );

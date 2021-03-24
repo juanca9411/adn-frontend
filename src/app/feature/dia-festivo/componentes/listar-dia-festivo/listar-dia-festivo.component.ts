@@ -15,7 +15,7 @@ export class ListarDiaFestivoComponent implements OnInit {
   ngOnInit(): void {
     this.service.listar()
     .subscribe(data => {
-      this.diaFestivo = data
+      this.diaFestivo = data;
     });
   }
 

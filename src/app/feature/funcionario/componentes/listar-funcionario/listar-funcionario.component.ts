@@ -16,22 +16,21 @@ export class ListarFuncionarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.listar()
-      .subscribe(data => {
-        console.log(data)
-        this.funcionario = data
+      .subscribe(
+        data => {
+        this.funcionario = data;
       });
   }
 
   aumentarSalario(funcionario: Funcionario) {
     this.service.aumentarSalario(funcionario)
       .subscribe(
-        data => {
-          console.log(data);
-            this.toastr.success("Peticion realizada con Exitos")
+        () => {
+            this.toastr.success('Peticion realizada con Exitos');
             window.location.reload();
         },
         error => {
-          this.toastr.error(error)
+          this.toastr.error(error);
           this.router.navigate(['./home/administrador/listar-Funcionarios']);
         });
   }

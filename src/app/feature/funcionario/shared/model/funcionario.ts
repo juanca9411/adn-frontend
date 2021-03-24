@@ -1,13 +1,13 @@
 export class Funcionario {
 
     idFuncionario:number;
-    nombre:String;
-    cedula:String;
+    nombre:string;
+    cedula:string;
     salario:number;
     fechaNacimiento:Date;
     fechaIngreso:Date;
 
-    constructor(idFuncionario:number,nombre:String,cedula:String,salario:number,
+    constructor(idFuncionario:number,nombre:string,cedula:string,salario:number,
       fechaNacimiento:Date,fechaIngreso:Date) {
 
             this.idFuncionario=idFuncionario;

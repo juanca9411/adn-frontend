@@ -20,15 +20,14 @@ export class RegistrarDiaFestivoComponent implements OnInit {
   }
 
   registrar() {
-    let fechaNew: Date = this.diaFestivoForm.value.fecha;
-    this.diaFestivoForm.patchValue({ fecha: fechaNew + " 00:00:00" });
+    let fechaNew: string = this.diaFestivoForm.value.fecha;
+    this.diaFestivoForm.patchValue({ fecha: fechaNew + ' 00:00:00' });
 
     this.service.crear(this.diaFestivoForm.value)
       .subscribe(
-        data => {
-          console.log(data);
+        () => {
           this.resultado=true;
-          this.toastr.success("Peticion realizada con Exitos")
+          this.toastr.success('Peticion realizada con Exitos');
           document.getElementById('cerrarModal').click();
         },
         error => {

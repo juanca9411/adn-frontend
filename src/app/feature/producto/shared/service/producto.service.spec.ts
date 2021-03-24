@@ -10,6 +10,8 @@ import { HttpResponse } from '@angular/common/http';
 describe('ProductoService', () => {
   let httpMock: HttpTestingController;
   let service: ProductoService;
+  const num=2;
+
   const apiEndpointProductoConsulta = `${environment.endpoint}/tiposFamilia`;
   const apiEndpointProductos = `${environment.endpoint}/productos`;
 
@@ -32,7 +34,7 @@ describe('ProductoService', () => {
       new Producto('1', 'Producto 1'), new Producto('2', 'Producto 2')
     ];
     service.consultar().subscribe(productos => {
-      expect(productos.length).toBe(2);
+      expect(productos.length).toBe(num);
       expect(productos).toEqual(dummyProductos);
     });
     const req = httpMock.expectOne(apiEndpointProductoConsulta);

@@ -20,12 +20,12 @@ idFuncionario:number;
 
     this.idFuncionario =  +this.activaRouter.snapshot.paramMap.get('idFuncionario');
     this.service.getDetalle(this.idFuncionario)
-      .subscribe(data => {
-        console.log(data)
-        this.funcionario = data
+      .subscribe(
+        data => {
+        this.funcionario = data;
       },
       error => {
-        this.toastr.error(error)
+        this.toastr.error(error);
       });
   }
 

@@ -21,15 +21,14 @@ export class ListarSolicitudPorFuncionarioComponent implements OnInit {
     this.idFuncionario = + this.activaRouter.snapshot.paramMap.get('idFuncionario');
     this.service.consultarByIdFuncionario(this.idFuncionario)
       .subscribe(data => {
-        console.log(data)
-        this.solicitudes = data
+        this.solicitudes = data;
       },error =>{
-        this.toastr.error(error)
+        this.toastr.error(error);
       });
   }
 
   registrarSolicitud() {
-    this.router.navigate(["registrar-solicitud"]);
+    this.router.navigate(['registrar-solicitud']);
   }
 
 }

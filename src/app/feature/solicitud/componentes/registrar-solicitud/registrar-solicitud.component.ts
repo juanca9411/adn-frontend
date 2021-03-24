@@ -14,10 +14,13 @@ export class RegistrarSolicitudComponent implements OnInit {
 
   solicitudForm: FormGroup;
   idFuncionario: number;
+  nueve:number=9;
+  month:number=new Date().getMonth() + 1;
+  day:number=new Date().getDate();
 
-  newMes = new Date().getMonth() + 1 < 9 ? '0' + (new Date().getMonth() + 1) : new Date().getMonth() + 1;
-  newDias = new Date().getDate() < 9 ? '0' + new Date().getDate() : new Date().getDate();
-  newFecha = new Date().getUTCFullYear() + "-" + this.newMes + "-" + this.newDias + " 00:00:00";
+  newMes = new Date().getMonth() + 1 < this.nueve ? '0' + this.month.toString() : this.month.toString();
+  newDias = new Date().getDate() < this.nueve ? '0' + this.day.toString() : this.day.toString();
+  newFecha = new Date().getUTCFullYear().toString() + '-' + this.newMes + '-' + this.newDias + ' 00:00:00';
 
   constructor(private service: SolicitudService, private router: Router, private activaRouter: ActivatedRoute,private toastr: ToastrService) { }
 
@@ -29,14 +32,13 @@ export class RegistrarSolicitudComponent implements OnInit {
   registrar() {
     this.service.crearSolicitud(this.solicitudForm.value)
       .subscribe(
-        data => {
-          this.toastr.success("Peticion realizada con Exitos")
-          console.log(data)
-          this.router.navigate(["home/funcionario/" + this.idFuncionario + "/listar-solicitudes/" + this.idFuncionario])
+        () => {
+          this.toastr.success('Peticion realizada con Exitos');
+          this.router.navigate(['home/funcionario/' + this.idFuncionario.toString() + '/listar-solicitudes/' + this.idFuncionario.toString()]);
         },
         error => {
-          this.toastr.error(error)
-          this.router.navigate(["home/funcionario/" + this.idFuncionario + "/listar-solicitudes/" + this.idFuncionario])
+          this.toastr.error(error);
+          this.router.navigate(['home/funcionario/' + this.idFuncionario.toString() + '/listar-solicitudes/' + this.idFuncionario.toString()]);
         });
   }
 

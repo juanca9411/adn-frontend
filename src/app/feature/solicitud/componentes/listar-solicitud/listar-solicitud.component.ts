@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Solicitud } from '../../shared/model/solicitud';
 import { SolicitudService } from '../../shared/service/solicitud.service';
-import { ResolverSolicitudComponent } from '../resolver-solicitud/resolver-solicitud.component';
 
 @Component({
   selector: 'app-listar-solicitud',
@@ -18,16 +17,16 @@ export class ListarSolicitudComponent implements OnInit {
   ngOnInit(): void {
     this.service.listar()
       .subscribe(data => {
-        this.solicitudes = data
+        this.solicitudes = data;
       },error =>{
-        this.toastr.error(error)
+        this.toastr.error(error);
     });
 
       
   }
 
   goResolverSolicitud(solicitud:Solicitud){
-    this.router.navigate(['home/administrador/resolver-solicitud'],{ queryParams:solicitud})
+    this.router.navigate(['home/administrador/resolver-solicitud'],{ queryParams:solicitud});
   }
 
   

@@ -30,11 +30,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DiaFestivoModule,
     HomeModule,
     CoreModule,
-	  BrowserAnimationsModule,
-	  ToastrModule.forRoot()
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [CookieService],
-    bootstrap: [AppComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

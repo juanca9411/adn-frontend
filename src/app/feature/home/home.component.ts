@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  idFuncionario:any;
+  idFuncionario:number;
   homeForm:FormGroup;
 
   textoDeInput:number;
@@ -17,16 +17,17 @@ export class HomeComponent implements OnInit {
   constructor(private router:Router) { 
   }
    ngOnInit() {
-    this.construirFormularioFuncionario()
+    this.construirFormularioFuncionario();
   }
 
   goFuncionario(){
-    this.router.navigate(['home/funcionario'+"/"+this.homeForm.value.idFuncionario])
+    let id:string=this.homeForm.value.idFuncionario;
+    this.router.navigate(['home/funcionario'+'/'+id]);
     document.getElementById('cerrarModal').click();
   }
 
   goAdministrador(){
-    this.router.navigate(['home/administrador'])
+    this.router.navigate(['home/administrador']);
   }
   
  private construirFormularioFuncionario(){

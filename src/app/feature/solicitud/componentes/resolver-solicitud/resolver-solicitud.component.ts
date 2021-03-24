@@ -14,7 +14,7 @@ export class ResolverSolicitudComponent implements OnInit {
 
   resolversolicitudForm: FormGroup;
   solicitud: Solicitud;
-  contractTypeValid:any;
+  contractTypeValid:boolean;
   constructor(private activaRouter: ActivatedRoute,private router:Router ,private service: SolicitudService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -22,21 +22,20 @@ export class ResolverSolicitudComponent implements OnInit {
 
     this.activaRouter.queryParams.subscribe(p =>{
       this.desactivarButton(p.estado);
-    })
+    });
   }
 
   resolver() {
     this.buildRequest();
     this.service.resolverSolicitud(this.solicitud)
       .subscribe(
-        data => {
-          this.toastr.success("Peticion realizada con Exitos")
-          console.log(data);
-          this.router.navigate(["home/administrador/listar-solicitud"]);
+        () => {
+          this.toastr.success('Peticion realizada con Exitos');
+          this.router.navigate(['home/administrador/listar-solicitud']);
           document.getElementById('cerrarModal').click();
         },
         error => {
-          this.toastr.error(error)
+          this.toastr.error(error);
         });
   }
   
@@ -58,7 +57,7 @@ export class ResolverSolicitudComponent implements OnInit {
 
   
 desactivarButton(estado:any){
-    if(estado=='Aprobado'||estado=='Rechazado'){
+    if(estado==='Aprobado'||estado==='Rechazado'){
        this.contractTypeValid = false;
     }else{
       this.contractTypeValid = true;

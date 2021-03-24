@@ -23,20 +23,19 @@ export class RegistrarFuncionarioComponent implements OnInit {
 
   registrar() {
    
-    let fechaNacimiento:Date=this.funcionarioForm.value.fechaNacimiento;
-    let fechaIngreso:Date=this.funcionarioForm.value.fechaIngreso;
-    this.funcionarioForm.patchValue({fechaNacimiento: fechaNacimiento+" 00:00:00", fechaIngreso: fechaIngreso+" 00:00:00"});
+    let fechaNacimiento:string=this.funcionarioForm.value.fechaNacimiento;
+    let fechaIngreso:string=this.funcionarioForm.value.fechaIngreso;
+    this.funcionarioForm.patchValue({fechaNacimiento: fechaNacimiento+' 00:00:00', fechaIngreso: fechaIngreso+' 00:00:00'});
 
     this.service.crear(this.funcionarioForm.value)
       .subscribe(
-        data => {
-          console.log(data);
-          this.toastr.success("Peticion realizada con Exitos")
-          this.router.navigate(["home/administrador/listar-funcionario"]);
+        () => {
+          this.toastr.success('Peticion realizada con Exitos');
+          this.router.navigate(['home/administrador/listar-funcionario']);
           document.getElementById('cerrarModal').click();
         },
         error => {
-          this.toastr.error(error)
+          this.toastr.error(error);
         },
         );
   }
