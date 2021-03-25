@@ -27,14 +27,6 @@ pipeline {
       }
     }
 
-    stage('Tests') {
-      steps{
-        echo "------------>Tests<------------"
-          sh 'ng e2e'
-         
-      }
-    }
-
     stage('Static Code Analysis') {
       steps{
         echo '------------>Análisis de código estático<------------'
