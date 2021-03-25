@@ -30,6 +30,10 @@ pipeline {
     stage('Tests') {
       steps{
         echo "------------>Tests<------------"
+        container ('chrome') {
+          sh 'npm run e2e'
+        }
+        junit 'e2e/test-results/**/*.xml'
          
       }
     }
