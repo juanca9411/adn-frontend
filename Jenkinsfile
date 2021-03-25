@@ -30,7 +30,7 @@ pipeline {
     stage('Tests') {
       steps{
         echo "------------>Tests<------------"
-          sh 'npm e2e'
+          sh 'ng e2e'
          
       }
     }
