@@ -56,7 +56,7 @@ export class ResolverSolicitudComponent implements OnInit {
   }
 
   
-desactivarButton(estado:any){
+desactivarButton(estado:string){
     if(estado==='Aprobado'||estado==='Rechazado'){
        this.contractTypeValid = false;
     }else{

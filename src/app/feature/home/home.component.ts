@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 
   goFuncionario(){
     let id:string=this.homeForm.value.idFuncionario;
-    this.router.navigate(['home/funcionario'+'/'+id]);
+    this.router.navigate([`home/funcionario/${id}`]);
     document.getElementById('cerrarModal').click();
   }
 
