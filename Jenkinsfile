@@ -36,9 +36,7 @@ pipeline {
     stage('Tests') {
       steps{
         echo "------------>Tests<------------"
-        container ('chrome') {
-           'ng e2e'
-        }
+          sh 'ng e2e'
       }
     }
 
