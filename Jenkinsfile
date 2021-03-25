@@ -30,9 +30,10 @@ pipeline {
     stage('Tests') {
       steps{
         echo "------------>Tests<------------"
-       
+        { 
           sh 'npm e2e'
-
+          }
+         
         junit 'e2e/test-results/**/*.xml'
          
       }
