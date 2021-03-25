@@ -3,6 +3,7 @@
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
 const { SpecReporter } = require('jasmine-spec-reporter');
+const { JUnitXmlReporter } = require('jasmine-reporters');
 var HtmlReporter = require('protractor-beautiful-reporter');
 
 /**
@@ -21,8 +22,8 @@ exports.config = {
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
-    defaultTimeoutInterval:30000,
-    print: function() {}
+    defaultTimeoutInterval: 30000,
+    print: function () { }
   },
   onPrepare() {
     require('ts-node').register({
@@ -31,7 +32,13 @@ exports.config = {
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
     jasmine.getEnv().addReporter(new HtmlReporter({
       baseDirectory: 'tmp/screenshots'
-   }).getJasmine2Reporter());
+    }).getJasmine2Reporter());
     
+    const junitReporter = new JUnitXmlReporter({
+      savePath: './e2e/test-results/E2E',
+      consolidateAll: false
+    });
+    jasmine.getEnv().addReporter(junitReporter);
+
   }
 };
