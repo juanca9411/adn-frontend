@@ -36,7 +36,6 @@ pipeline {
     stage('Tests') {
       steps{
         echo "------------>Tests<------------"
-        ng e2e
       }
     }
 
