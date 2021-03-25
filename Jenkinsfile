@@ -37,7 +37,7 @@ pipeline {
       steps{
         echo "------------>Tests<------------"
         container ('chrome') {
-          sh 'npm run e2e-ci'
+          sh 'ng e2e'
         }
         junit 'e2e/test-results/**/*.xml'
       }
