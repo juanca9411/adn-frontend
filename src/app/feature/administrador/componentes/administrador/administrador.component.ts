@@ -3,8 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-administrador',
-  templateUrl: './administrador.component.html',
-  styleUrls: ['./administrador.component.css']
+  templateUrl: './administrador.component.html'
 })
 export class AdministradorComponent implements OnInit {
 
