@@ -10,12 +10,6 @@ pipeline {
  	disableConcurrentBuilds()
   }
 
-  //Una sección que define las herramientas “preinstaladas” en Jenkins
-  //tools {
-    //jdk 'JDK11_Centos' //Preinstalada en la Configuración del Master
-    //gradle 'Gradle5.6_Centos' //Preinstalada en la Configuración del Master
-  //}
-
   //Aquí comienzan los “items” del Pipeline
   stages{
     stage('Checkout') {
@@ -36,7 +30,7 @@ pipeline {
     stage('Tests') {
       steps{
         echo "------------>Tests<------------"
-          sh 'ng e2e'
+         
       }
     }
 
