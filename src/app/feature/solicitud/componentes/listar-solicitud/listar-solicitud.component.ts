@@ -12,22 +12,24 @@ import { SolicitudService } from '../../shared/service/solicitud.service';
 export class ListarSolicitudComponent implements OnInit {
 
   solicitudes: Solicitud[];
-  constructor(private service: SolicitudService,private router:Router,private toastr: ToastrService) { }
+  constructor(private service: SolicitudService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.listar();
+  }
+
+  private listar() {
     this.service.listar()
       .subscribe(data => {
         this.solicitudes = data;
-      },error =>{
+      }, error => {
         this.toastr.error(error);
-    });
-
-      
+      });
   }
 
-  goResolverSolicitud(solicitud:Solicitud){
-    this.router.navigate(['home/administrador/resolver-solicitud'],{ queryParams:solicitud});
+  goResolverSolicitud(solicitud: Solicitud) {
+    this.router.navigate(['home/administrador/resolver-solicitud'], { queryParams: solicitud });
   }
 
-  
+
 }

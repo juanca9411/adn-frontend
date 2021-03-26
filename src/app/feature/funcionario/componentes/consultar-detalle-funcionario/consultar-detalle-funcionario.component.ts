@@ -10,23 +10,28 @@ import { FuncionarioService } from '../../shared/service/funcionario.service';
   styleUrls: ['./consultar-detalle-funcionario.component.css']
 })
 export class ConsultarDetalleFuncionarioComponent implements OnInit {
-funcionario:Funcionario[];
-idFuncionario:number;
+  funcionario: Funcionario[];
+  idFuncionario: number;
 
-  constructor(protected service:FuncionarioService,private activaRouter:ActivatedRoute,private toastr: ToastrService) {
-   }
+  constructor(protected service: FuncionarioService, private activaRouter: ActivatedRoute, private toastr: ToastrService) {
+  }
 
   ngOnInit(): void {
 
-    this.idFuncionario =  +this.activaRouter.snapshot.paramMap.get('idFuncionario');
+    this.getDetalleFuncionario();
+
+  }
+
+  private getDetalleFuncionario() {
+    this.idFuncionario = +this.activaRouter.snapshot.paramMap.get('idFuncionario');
     this.service.getDetalle(this.idFuncionario)
       .subscribe(
         data => {
-        this.funcionario = data;
-      },
-      error => {
-        this.toastr.error(error);
-      });
+          this.funcionario = data;
+        },
+        error => {
+          this.toastr.error(error);
+        });
   }
 
 

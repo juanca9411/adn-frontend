@@ -15,11 +15,15 @@ export class ListarFuncionarioComponent implements OnInit {
   constructor(protected service: FuncionarioService, protected router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+   this.listar();
+  }
+
+  private listar(){
     this.service.listar()
-      .subscribe(
-        data => {
-        this.funcionario = data;
-      });
+    .subscribe(
+      data => {
+      this.funcionario = data;
+    });
   }
 
   aumentarSalario(funcionario: Funcionario) {

@@ -14,15 +14,18 @@ export class ListarSolicitudPorFuncionarioComponent implements OnInit {
   solicitudes: Solicitud[];
   idFuncionario: number;
 
-  constructor(private router: Router, private service: SolicitudService, private activaRouter: ActivatedRoute,private toastr: ToastrService) { }
+  constructor(private router: Router, private service: SolicitudService, private activaRouter: ActivatedRoute, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getSolicitudFuncionario();
+  }
 
+  private getSolicitudFuncionario() {
     this.idFuncionario = + this.activaRouter.snapshot.paramMap.get('idFuncionario');
     this.service.consultarByIdFuncionario(this.idFuncionario)
       .subscribe(data => {
         this.solicitudes = data;
-      },error =>{
+      }, error => {
         this.toastr.error(error);
       });
   }

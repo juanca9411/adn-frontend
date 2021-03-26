@@ -13,6 +13,10 @@ export class ListarDiaFestivoComponent implements OnInit {
   constructor(private service: DiaFestivoService) { }
 
   ngOnInit(): void {
+    this.listar();
+  }
+
+  private listar(){
     this.service.listar()
     .subscribe(data => {
       this.diaFestivo = data;
