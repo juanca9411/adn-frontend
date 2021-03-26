@@ -4,40 +4,44 @@
             <h3 style="text-align: center">Lista de Solicitudes realizadas</h3>
         </div>
         <br />
-        <div class="card-body">
-            <table class="table table-hover"  aria-describedby="Listado de solicitudes registradas">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">Id Funcionaro</th>
-                        <th scope="col">Numero Solicitud</th>
-                        <th scope="col">Fecha Solicitud</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Respuesta</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let solicitud of solicitudes" class="text-center">
-                        <td id="resultSolicitudIdFuncionario">{{solicitud.idFuncionario}}</td>
-                        <td id="resultSolicitudnumSolicitud">{{solicitud.numSolicitud}}</td>
-                        <td id="resultSolicitudFechaSolicitud">{{solicitud.fechaSolicitud | date:'dd-MM-yyyy'}}</td>
-                        <td id="resultSolicitudJustificacion">{{solicitud.justificacion}}</td>
-                        <td id="resultSolicitudEstado">{{solicitud.estado}}</td>
-                        <td id="resultSolicitudRespuesta">{{solicitud.respuesta}}</td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Opciones
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <h4><a class="dropdown-item" data-toggle="modal" data-target="#exampleModal" (click)="goResolverSolicitud(solicitud)" >Resolver solicitud</a></h4>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <div class="card-body">
+                <table class="table table-hover" aria-describedby="Listado de solicitudes registradas">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">Id Funcionaro</th>
+                            <th scope="col">Numero Solicitud</th>
+                            <th scope="col">Fecha Solicitud</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Respuesta</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let solicitud of solicitudes" class="text-center">
+                            <td id="resultSolicitudIdFuncionario">{{solicitud.idFuncionario}}</td>
+                            <td id="resultSolicitudnumSolicitud">{{solicitud.numSolicitud}}</td>
+                            <td id="resultSolicitudFechaSolicitud">{{solicitud.fechaSolicitud | date:'dd-MM-yyyy'}}</td>
+                            <td id="resultSolicitudJustificacion">{{solicitud.justificacion}}</td>
+                            <td id="resultSolicitudEstado">{{solicitud.estado}}</td>
+                            <td id="resultSolicitudRespuesta">{{solicitud.respuesta}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Opciones
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <h4><a class="dropdown-item" data-toggle="modal" data-target="#exampleModal"
+                                                (click)="goResolverSolicitud(solicitud)">Resolver solicitud</a></h4>
+                                    </div>
                                 </div>
-                            </div></td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

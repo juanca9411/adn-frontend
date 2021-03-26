@@ -4,41 +4,45 @@
         <div class="card heder">
             <h3 style="text-align: center;">Listado de Funcionarios</h3>
         </div>
-        <div class="card-body">
-            <table class="table table-striped"  aria-describedby="Listado de Funcionarios registrados en el sistema">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">Id Funcionario</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Cedula</th>
-                        <th scope="col">Salario</th>
-                        <th scope="col">Fecha de Nacimiento</th>
-                        <th scope="col">Fecha de Ingreso</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let fun of funcionario" class="text-center">
-                        <td id="funcionarioIdFuncionario">{{fun.idFuncionario}}</td>
-                        <td id="funcionarioNombre">{{fun.nombre}}</td>
-                        <td id="funcionarioCedula">{{fun.cedula}}</td>
-                        <td id="funcionarioSalario">{{fun.salario}}</td>
-                        <td id="funcionarioFechaNacimiento">{{fun.fechaNacimiento | date: 'dd/MM/yyyy'}}</td>
-                        <td id="funcionarioFechaIngreso">{{fun.fechaIngreso | date:'dd/MM/yyyy'}}</td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle" id="funcionarioOpcionAumentarSalarioDropdown" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Opciones
-                                </button>
-                                <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
-                                    <h4><a class="dropdown-item" id="funcionarioAumentarSalario" (click)="aumentarSalario(fun)" >Aumentar Salario</a></h4>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <div class="card-body">
+                <table class="table table-striped" aria-describedby="Listado de Funcionarios registrados en el sistema">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">Id Funcionario</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Cedula</th>
+                            <th scope="col">Salario</th>
+                            <th scope="col">Fecha de Nacimiento</th>
+                            <th scope="col">Fecha de Ingreso</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let fun of funcionario" class="text-center">
+                            <td id="funcionarioIdFuncionario">{{fun.idFuncionario}}</td>
+                            <td id="funcionarioNombre">{{fun.nombre}}</td>
+                            <td id="funcionarioCedula">{{fun.cedula}}</td>
+                            <td id="funcionarioSalario">{{fun.salario}}</td>
+                            <td id="funcionarioFechaNacimiento">{{fun.fechaNacimiento | date: 'dd/MM/yyyy'}}</td>
+                            <td id="funcionarioFechaIngreso">{{fun.fechaIngreso | date:'dd/MM/yyyy'}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary btn-sm dropdown-toggle"
+                                        id="funcionarioOpcionAumentarSalarioDropdown" type="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Opciones
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <h4><a class="dropdown-item" id="funcionarioAumentarSalario"
+                                                (click)="aumentarSalario(fun)">Aumentar Salario</a></h4>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
